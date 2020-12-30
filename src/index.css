@@ -1,5 +1,19 @@
 * {
   margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: initial;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  max-width: 100%;
+  width: 100%;
 }
 body {
   margin: 0;
