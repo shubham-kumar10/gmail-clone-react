@@ -5,6 +5,7 @@ import Sidebar from './Sidebar'
 import Mail from './Mail'
 import EmailList from './EmailList'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import Composemail from './ComposeMail'
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         </Route>
                         <Route path="/">
                             <EmailList />
+                            <Composemail />
                         </Route>
                     </Switch>
                 </div>
