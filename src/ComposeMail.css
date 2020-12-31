@@ -52,3 +52,10 @@
 .compose--form-message {
     flex: 1;
 }
+.compose--form-error {
+    color: tomato;
+    font-weight: 500;
+    background-color: white;
+    text-align: right;
+    padding: 0.2rem;
+}
