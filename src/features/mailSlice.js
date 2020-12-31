@@ -3,9 +3,13 @@ import { createSlice } from '@reduxjs/toolkit'
 export const mailSlice = createSlice({
     name: 'mail',
     initialState: {
+        selectedMail: null,
         isComposeOpen: false,
     },
     reducers: {
+        selectMail: (state, action) => {
+            state.selectedMail = action.payload
+        },
         openCompose: (state) => {
             state.isComposeOpen = true
         },
@@ -15,7 +19,9 @@ export const mailSlice = createSlice({
     },
 })
 
-export const { openCompose, closeCompose } = mailSlice.actions
+export const { selectMail, openCompose, closeCompose } = mailSlice.actions
+
+export const selectOpenMail = (state) => state.mail.selectedMail
 
 export const selectIsComposeOpen = (state) => state.mail.isComposeOpen
 

@@ -5,11 +5,21 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import './ComposeMail.css'
 import { closeCompose } from './features/mailSlice'
+import { db } from './firebase'
+import firebase from 'firebase'
 
 function Composemail() {
     const { register, handleSubmit, watch, errors } = useForm()
     const dispatch = useDispatch()
-    const onFormSubmit = (formData) => {}
+    const onFormSubmit = (formData) => {
+        db.collection('emails').add({
+            to: formData.sender,
+            subject: formData.subject,
+            message: formData.subject,
+            timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+        dispatch(closeCompose())
+    }
     return (
         <div class="compose">
             <div className="compose--header">

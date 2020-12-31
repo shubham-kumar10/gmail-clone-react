@@ -6,11 +6,28 @@ import {
 } from '@material-ui/icons'
 import './EmailRow.css'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { selectMail } from './features/mailSlice'
 
 function EmailRow({ id, title, subject, description, time }) {
     const history = useHistory()
+    const dispatch = useDispatch()
+
+    const openMail = () => {
+        dispatch(
+            selectMail({
+                id,
+                title,
+                subject,
+                description,
+                time,
+            })
+        )
+        history.push('/inbox')
+    }
+
     return (
-        <div className="emailRow" onClick={() => history.push('/inbox')}>
+        <div className="emailRow" onClick={openMail}>
             <div className="emailRow--options">
                 <Checkbox />
                 <IconButton>
