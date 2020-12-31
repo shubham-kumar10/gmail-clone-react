@@ -1,0 +1,17 @@
+.sidebar {
+    flex: 0.3;
+    max-width: 30rem;
+    padding-right: 1rem;
+}
+.sidebar--compose {
+    margin: 1rem 1.5rem !important;
+    text-transform: capitalize !important;
+    color: gray;
+    font-size: large !important;
+    padding: 1rem !important;
+    border-radius: 3rem !important;
+    box-shadow: 0 0.2rem 0.5rem -0.2rem rgba(0, 0, 0, 0.75);
+}
+.sidebar--compose-add {
+    margin-left: 0.5rem;
+}

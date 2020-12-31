@@ -1,0 +1,54 @@
+.compose {
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid white;
+    position: absolute;
+    bottom: 0;
+    right: 5rem;
+    background-color: #404040;
+    width: 40%;
+    height: 40%;
+    max-width: 50rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0 0.5rem 0.7rem 0 rgba(0, 0, 0, 0.24);
+}
+
+.compose--header {
+    padding: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+}
+
+.compose--header > h3 {
+    color: whitesmoke;
+    font-size: 1.3rem;
+}
+
+.compose--footer-button {
+    background-color: #3079ed !important;
+    text-transform: capitalize !important;
+    margin: 1.5rem !important;
+}
+
+.compose--header-icon {
+    cursor: pointer;
+}
+.compose--form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.compose > form > input {
+    height: 3rem;
+    padding: 1rem;
+    border: none;
+    border-bottom: 0.1rem solid whitesmoke;
+    outline: none;
+}
+
+.compose--form-message {
+    flex: 1;
+}
