@@ -1,26 +1,71 @@
 import { Button } from '@material-ui/core'
 import { Close } from '@material-ui/icons'
 import React from 'react'
+import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import './ComposeMail.css'
+import { closeCompose } from './features/mailSlice'
+import { db } from './firebase'
+import firebase from 'firebase'
 
 function Composemail() {
+    const { register, handleSubmit, watch, errors } = useForm()
+    const dispatch = useDispatch()
+    const onFormSubmit = (formData) => {
+        db.collection('emails').add({
+            to: formData.sender,
+            subject: formData.subject,
+            message: formData.subject,
+            timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+        dispatch(closeCompose())
+    }
     return (
         <div class="compose">
             <div className="compose--header">
                 <h3>New Message</h3>
-                <Close className="compose--header-icon" />
+                <Close
+                    className="compose--header-icon"
+                    onClick={() => dispatch(closeCompose())}
+                />
             </div>
-            <form className="compose--form">
-                <input type="text" placeholder="To" />
-                <input type="text" placeholder="Subject" />
+            <form
+                className="compose--form"
+                onSubmit={handleSubmit(onFormSubmit)}
+            >
                 <input
+                    name="sender"
+                    type="email"
+                    placeholder="To"
+                    ref={register({ required: true })}
+                />
+                {errors.sender && (
+                    <p className="compose--form-error">
+                        Sender email is required
+                    </p>
+                )}
+                <input
+                    name="subject"
+                    type="text"
+                    placeholder="Subject"
+                    ref={register({ required: true })}
+                />
+                <input
+                    name="message"
                     type="text"
                     placeholder="Message"
+                    ref={register({ required: true })}
                     className="compose--form-message"
                 />
-
                 <div className="compose--footer">
-                    <Button class="compose--footer-button">Send</Button>
+                    <Button
+                        className="compose--footer-button"
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                    >
+                        Send
+                    </Button>
                 </div>
             </form>
         </div>

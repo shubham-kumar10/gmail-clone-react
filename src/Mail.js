@@ -13,11 +13,15 @@ import {
     UnfoldMore,
     WatchLater,
 } from '@material-ui/icons'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { selectOpenMail } from './features/mailSlice'
 import './Mail.css'
 
 function Mail() {
     const history = useHistory()
+    const selectedMail = useSelector(selectOpenMail)
+
     return (
         <div className="mail">
             <div className="mail--header">
@@ -68,12 +72,12 @@ function Mail() {
             </div>
             <div className="mail--body">
                 <div className="mail--body-header">
-                    <h2>Subject</h2>
-                    <p>Title</p>
-                    <p>10pm</p>
+                    <h2>{selectedMail?.subject}</h2>
+                    <p>{selectedMail?.title}</p>
+                    <p>{selectedMail?.time}</p>
                 </div>
                 <div className="mail--body-message">
-                    <p>This is a message</p>
+                    <p>{selectedMail?.description}</p>
                 </div>
             </div>
         </div>
