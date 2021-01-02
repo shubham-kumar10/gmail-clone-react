@@ -1,0 +1,63 @@
+.login {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    height: 100vh;
+    background-color: whitesmoke;
+    background-size: cover;
+    background-image: url('https://lh3.googleusercontent.com/PV8VkijrHZWfBrvC01RUIkNiH67CCPDfPA_Xck1AD8lMjCTGq5PyfoIkIRq2TwN7hGxlrtmCUTiWLWRgkYL-eR3RqNTtItcUiPrVBQ=w0');
+}
+.login--body {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.login--body > h1 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    text-align: center;
+    margin: 1rem;
+}
+
+.login--body > p {
+    font-size: medium;
+    text-align: justify;
+    margin: 1rem;
+}
+
+.login--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.login--header-left {
+    display: flex;
+    flex: 0.7;
+    align-items: center;
+}
+
+.login--header-left > img {
+    object-fit: contain;
+    height: 3rem;
+    margin: 1rem 1rem 0.5rem 0;
+}
+
+.login--header-right {
+    display: flex;
+    flex: 0.3;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.login--header-buttons {
+    margin: 0.5rem !important;
+}

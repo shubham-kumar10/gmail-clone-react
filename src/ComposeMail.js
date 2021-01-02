@@ -59,7 +59,7 @@ function Composemail() {
                 />
                 <div className="compose--footer">
                     <Button
-                        class="compose--footer-button"
+                        className="compose--footer-button"
                         variant="contained"
                         color="primary"
                         type="submit"
